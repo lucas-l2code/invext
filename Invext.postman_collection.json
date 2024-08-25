@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "60a0537b-a186-4773-b44b-4dc3a6f3b897",
+		"name": "Invext",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Solicitações",
+			"item": [
+				{
+					"name": "Listar Solicitações",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseUrl}}/solicitacoes?status=ABERTO",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"solicitacoes"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ABERTO"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Solicitação",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Solicitação #19\",\r\n    \"descricao\": \"\",\r\n    \"tipo\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiBaseUrl}}/solicitacoes",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"solicitacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fechar Solicitação",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"\",\r\n    \"descricao\": \"\",\r\n    \"tipo\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiBaseUrl}}/solicitacoes/:id/concluir",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"solicitacoes",
+								":id",
+								"concluir"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Atendimento",
+			"item": [
+				{
+					"name": "Status dos times de atendimento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseUrl}}/solicitacoes/atendimento",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"solicitacoes",
+								"atendimento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiBaseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
